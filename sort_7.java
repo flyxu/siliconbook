@@ -9,12 +9,22 @@ public class sort_7 {
 			res.add(newint);
 			return res;
 		}
-		for (int i = 0; i < intervals.length; i++) {
-			while (newint.start > intervals[i].end) {
-				res.add(intervals[i]);
-			}
+		int n = intervals.length;
+		int i = 0;
+		while (i < n & intervals[i].end < newint.start) {
+			res.add(intervals[i]);
+			i++;
 		}
-
+		while (i < n & intervals[i].start <= newint.end) {
+			newint.start = Math.min(intervals[i].start, newint.start);
+			newint.end = Math.max(intervals[i].end, newint.end);
+			i++;
+		}
+		res.add(newint);
+		while (i < n) {
+			res.add(intervals[i++]);
+		}
+		return res;
 	}
 
 }
