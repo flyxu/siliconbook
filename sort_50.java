@@ -16,6 +16,5 @@ public class sort_50 {
 		System.out.println(val);
 		int a=4;
 		System.out.println(1<<a);
-		
 	}
 }
