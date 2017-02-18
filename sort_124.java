@@ -1,5 +1,7 @@
 package silicon;
 
+import javax.xml.parsers.DocumentBuilder;
+
 public class sort_124 {
 	public double sqrt(double a){
 		if(a==0||a==1)
@@ -15,6 +17,16 @@ public class sort_124 {
 			else start=mid;
 		}
 		return (start+end)/2;
+	}
+	//扩展
+	public double sqrt2(double d){
+		if(d==0.0) return 0;
+		double root=d/2;
+		double tolerance=1.0e-7;
+		do{
+			root=(root+d/root)/2;
+		}while(Math.abs(root*root-d)>tolerance);
+		return root;		
 	}
 	
 }

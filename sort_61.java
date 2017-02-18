@@ -36,4 +36,38 @@ public class sort_61 {
 					}
 		return resSet;
 	}
+	
+	public static ArrayList<ArrayList<Integer>> threesum2(int[] num){
+		ArrayList<ArrayList<Integer>> result=new ArrayList<>();
+		if(num.length<3)
+			return result;
+		Arrays.sort(num);
+		for(int i=0;i<num.length;i++){
+			if(num[i]>0)
+				break;
+			if(i>0&&num[i]==num[i-1])
+				continue;
+			int start=i+1;
+			int end=num.length-1;
+			int sum=num[i]+num[start]+num[end];
+			if(sum<0){
+				start++;
+			}
+			else if(sum>0)
+			{
+				end--;
+			}
+			else{
+				ArrayList<Integer> arrayList=new ArrayList<>();
+				arrayList.add(num[i]);
+				arrayList.add(num[start]);
+				arrayList.add(num[end]);
+				result.add(arrayList);
+				do{start++;}while(start<end&&num[start]==num[start-1]);
+				do{end--;}while(start<end&&num[end+1]==num[end]);
+			}
+			
+		}
+		return result;
+	}
 }
